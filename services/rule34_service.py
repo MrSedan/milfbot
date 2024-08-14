@@ -4,7 +4,7 @@ import logging
 
 async def get_post_list(tags = ""):
     async with ClientSession() as session:
-        base_url = settings.rule34_url
+        base_url = f"{settings.rule34_url}?page=dapi&s=post&q=index&json=1&limit=50"
         if tags:
             url = f"{base_url}&tags={tags}"
         else:
