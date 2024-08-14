@@ -58,4 +58,4 @@ ATM can only fetch photos from rule34 site
 
 > TODO...
 
-Feel free for oppening issues
+Feel free to open an issue 
