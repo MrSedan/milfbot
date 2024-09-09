@@ -22,7 +22,8 @@ async def show_user_links(inline_query: InlineQuery):
                     result.append(InlineQueryResultPhoto(
                         id=str(item.get("hash")),
                         photo_url=file_url,
-                        thumbnail_url=item.get("preview_url")
+                        thumbnail_url=item.get("preview_url"),
+                        caption = f"Source: https://rule34.xxx/index.php?page=post&s=view&id={item.get('id')}"
                     ))
                 else:
                     result = []
