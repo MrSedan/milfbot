@@ -1,7 +1,13 @@
 import os
+from typing import Optional
+from dotenv import load_dotenv
+
 
 class Settings():
-    rule34_url: str = os.environ.get("RULE34_URL")
-    bot_token: str = os.environ.get("BOT_TOKEN")
+    load_dotenv()
+    rule34_url: Optional[str] = os.getenv("RULE34_URL")
+    danbooru_url: Optional[str] = os.getenv("DANBOORU_URL")
+    bot_token: str = os.getenv("BOT_TOKEN")
+
 
 settings = Settings()

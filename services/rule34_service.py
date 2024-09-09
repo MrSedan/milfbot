@@ -1,8 +1,7 @@
 from aiohttp import ClientSession
 from services.config import settings
-import logging
 
-async def get_post_list(tags = ""):
+async def get_post_list(tags=""):
     async with ClientSession() as session:
         base_url = f"{settings.rule34_url}?page=dapi&s=post&q=index&json=1&limit=50"
         if tags:
@@ -12,7 +11,6 @@ async def get_post_list(tags = ""):
         response = await session.get(url)
         if response.status == 200:
             data = await response.json()
-            return data  
-        else: 
-            logging.error(f"{response.status}")
+            return data
+        else:
             return []
