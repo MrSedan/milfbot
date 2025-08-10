@@ -44,9 +44,10 @@ ATM can only fetch Photos, Animations (GIFs) and videos from rule34 site and dan
 
     - Open the `.env` and replace `BOT_TOKEN=YOUR_TELEGRAM_BOT_TOKEN` with your actual bot token.
 
-3.  **(Optional) Replace the Rule34 site token:**
+3.  **(Optional) Use a custom API endpoint:**
 
-    - If necessary, modify the `RULE34_URL` variable in the `.env` file
+    - If you want to use your own service or a different mirror, modify the corresponding URL variables (e.g. `RULE34_URL`, `DANBOORU_URL`, etc.) in your `.env` file.
+    - You can add new variables for other services as needed and update the
 
 4.  **Run the script:**
 
@@ -61,6 +62,9 @@ ATM can only fetch Photos, Animations (GIFs) and videos from rule34 site and dan
 3.  **Start writing message**
 
     - example: `@YOURBOT pic/vid/gif r34/danbooru [TAGS]`
+        > **Note:** Danbooru restricts tag searches for users without an upgraded account.  
+        > You can only use **one tag** per search unless you have a premium profile.  
+        > If you use more tags, you may get an error and empty results
 
 ## Contributing
 

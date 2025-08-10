@@ -42,5 +42,13 @@ async def show_user_gifs(inline_query: InlineQuery):
                         ))
     except Exception:
         print("An error occurred while processing the inline query.")
+    if not result:
+        await inline_query.answer(
+            results=[],
+            switch_pm_text="No results found. Click here to see how to use the bot.",
+            switch_pm_parameter="guide",
+            is_personal=True
+        )
+        return
 
     await inline_query.answer(result, is_personal=True)
