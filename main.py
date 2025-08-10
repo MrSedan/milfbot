@@ -1,7 +1,7 @@
 import asyncio
 from aiogram import Bot, Dispatcher
 from services.config import settings
-from handlers import inline_images, inline_animations
+from handlers import inline_images, inline_animations, inline_videos
 
 
 async def main():
@@ -9,7 +9,9 @@ async def main():
     dp = Dispatcher()
     dp.include_routers(inline_images.router)
     dp.include_routers(inline_animations.router)
+    dp.include_routers(inline_videos.router)
 
+    
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot)
 
