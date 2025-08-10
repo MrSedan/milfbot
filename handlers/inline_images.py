@@ -1,5 +1,6 @@
 from aiogram import Router, F
 from aiogram.types import InlineQuery, InlineQueryResultPhoto
+from aiogram.enums.parse_mode import ParseMode
 import sys
 from services import rule34_service, danbooru_service
 
@@ -23,7 +24,8 @@ async def show_user_links(inline_query: InlineQuery):
                             id=str(item.get("hash")),
                             photo_url=file_url,
                             thumbnail_url=item.get("preview_url"),
-                            caption = f"Source: https://rule34.xxx/index.php?page=post&s=view&id={item.get('id')}"
+                            parse_mode=ParseMode.MARKDOWN_V2,
+                            caption = f"[Source](https://rule34.xxx/index.php?page=post&s=view&id={item.get('id')})"
                         ))
                     else:
                         result = []
@@ -37,7 +39,8 @@ async def show_user_links(inline_query: InlineQuery):
                                 id=str(item.get("md5")),
                                 photo_url=file_url,
                                 thumbnail_url=item.get("preview_file_url"),
-                                caption = f"Source: https://danbooru.donmai.us/posts/{item.get('id')}"
+                                parse_mode=ParseMode.MARKDOWN_V2,
+                                caption = f"[Source](https://danbooru.donmai.us/posts/{item.get('id')})"
                             ))
                 else:
                     result = []
