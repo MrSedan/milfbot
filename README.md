@@ -1,7 +1,7 @@
-# Multimedia Interactive Fetch Bot (MiLF Bot)
+# Multimedia interactive Library Fetch Bot (MiLF Bot)
 
 ## Description
-ATM can only fetch photos from rule34 site
+ATM can only fetch Photos, Animations (GIFs) and videos from rule34 site and danbooru
 > TODO...
 
 ## USAGE:
@@ -53,9 +53,28 @@ ATM can only fetch photos from rule34 site
     ```bash
     python main.py
     ```
+### Using
+1.  **Make sure that your bot using inline mode!**
+
+2.  **Enter your Telegram chat**
+
+3.  **Start writing message**
+
+    - example: `@YOURBOT pic/vid/gif r34/danbooru [TAGS]`
 
 ## Contributing
 
-> TODO...
+We welcome contributions to MiLF Bot!  
+If you have ideas, bug reports, or feature requests, please open an issue.
 
-Feel free to open an issue 
+### How to contribute
+
+1. **Fork the repository** and create your branch from `main`.
+2. **Make your changes** (code, documentation, tests).
+3. **Ensure your code follows project style** and passes all checks.
+4. **Submit a pull request** with a clear description of your changes.
+
+
+If you need help, feel free to open an issue or start a discussion.
+
+Thank you for helping improve MiLF Bot!
