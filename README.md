@@ -63,7 +63,7 @@ ATM can only fetch Photos, Animations (GIFs) and videos from rule34 site and dan
 
     - example: `@YOURBOT pic/vid/gif r34/danbooru [TAGS]`
         > **Note:** Danbooru restricts tag searches for users without an upgraded account.  
-        > You can only use **one tag** per search unless you have a premium profile.  
+        > You can only use **one tag** per search unless you have a gold danbooru profile.  
         > If you use more tags, you may get an error and empty results
 
 ## Contributing
