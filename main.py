@@ -31,25 +31,6 @@ async def main():
         if message.text and (message.text == "/start" or message.text.startswith("/start guide")):
             await message.answer(await get_guide_text(), parse_mode=ParseMode.MARKDOWN_V2)
 
-    @dp.inline_query()
-    async def inline_guide(query: InlineQuery):
-        if query.query.strip().lower() == "guide":
-            text = await get_guide_text()
-            await query.answer(
-                results=[
-                    InlineQueryResultArticle(
-                        id="guide",
-                        title="How to use this bot",
-                        input_message_content=InputTextMessageContent(
-                            message_text=text,
-                            parse_mode=ParseMode.MARKDOWN_V2
-                        ),
-                        description="Show usage instructions"
-                    )
-                ],
-                cache_time=0,
-                is_personal=True
-            )
 
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot)
