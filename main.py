@@ -3,7 +3,6 @@ from aiogram import Bot, Dispatcher
 from services.config import settings
 from handlers import inline_images, inline_animations, inline_videos
 from aiogram.enums.parse_mode import ParseMode
-from aiogram.types import InlineQuery, InlineQueryResultArticle, InputTextMessageContent
 from aiogram.filters import Command
 
 async def main():

@@ -2,7 +2,7 @@ from aiogram import Router, F
 from aiogram.types import InlineQuery, InlineQueryResultVideo
 from aiogram.enums.parse_mode import ParseMode
 import sys
-from services import rule34_service, danbooru_service
+from services import rule34_service, danbooru_service, safebooru_service
 
 sys.path.append("..")
 router = Router()
@@ -24,11 +24,12 @@ async def show_user_videos(inline_query: InlineQuery):
         service = parts[1]
         tags = inline_query.query.split(f"vid {service}", 1)[-1].strip()
 
-        # Получаем только видео сразу из API
         if service == "r34":
             response_data = await rule34_service.get_post_list(tags + " animated", limit=ITEMS_PER_PAGE, page=page)
         elif service == "danbooru":
             response_data = await danbooru_service.get_post_list(tags, limit=ITEMS_PER_PAGE, page=page)
+        elif service == "safebooru":
+            response_data = await safebooru_service.get_post_list(tags + " animated", limit=ITEMS_PER_PAGE, page=page)
         else:
             response_data = []
 
@@ -45,12 +46,19 @@ async def show_user_videos(inline_query: InlineQuery):
                     width = item.get("width")
                     height = item.get("height")
                     duration = item.get("duration")
-                else:
+                elif service == "danbooru":
                     thumb = item.get("preview_file_url")
                     src = f"[Source](https://danbooru.donmai.us/posts/{item.get('id')})"
                     uid = f"{item.get('md5')}_{page}_{idx}"
                     width = item.get("image_width")
                     height = item.get("image_height")
+                    duration = item.get("duration")
+                elif service == "safebooru":
+                    thumb = item.get("preview_url")
+                    src = f"[Source](https://safebooru.org/index.php?page=post&s=view&id={item.get('id')})"
+                    uid = f"{item.get('hash')}_{page}_{idx}"
+                    width = item.get("width")
+                    height = item.get("height")
                     duration = item.get("duration")
 
                 result.append(
