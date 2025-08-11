@@ -1,7 +1,7 @@
 import asyncio
 from aiogram import Bot, Dispatcher
 from services.config import settings
-from handlers import inline_images, inline_animations, inline_videos
+from handlers import inline_images, inline_animations, inline_videos, inline_random
 from aiogram.enums.parse_mode import ParseMode
 from aiogram.filters import Command
 
@@ -11,6 +11,7 @@ async def main():
     dp.include_routers(inline_images.router)
     dp.include_routers(inline_animations.router)
     dp.include_routers(inline_videos.router)
+    dp.include_router(inline_random.router)
 
     async def get_guide_text():
         username = (await bot.me()).username if hasattr(bot, "me") else "YOURBOT"
