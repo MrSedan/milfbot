@@ -19,7 +19,7 @@ async def main():
             f"Just type in any chat:\n`@{username} pic r34 cat`\n"
             f"Or:\n`@{username} gif danbooru neko`\n\n"
             "*You can use:*\n"
-            "`pic`, `gif`, `vid` and `r34`, `danbooru` as sources\.\n\n"
+            "`pic`, `gif`, `vid` and `r34`, `danbooru`, `safebooru` as sources\.\n\n"
             "*Example:*\n"
             f"`@{username} pic r34 cat`\n\n"
             "_Note: Danbooru restricts tag searches for users without an upgraded account\. Only one tag per search unless you have a gold danbooru profile\._"
